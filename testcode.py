@@ -21,13 +21,15 @@ class Account():
 
     def withdraw(self):
         withdrawal_amount = int(input('How much would you like to withdraw? '))
+        while withdrawal_amount > self.balance:
+            if withdrawal_amount > self.balance:
+                print(f'You cannot withdraw that much as it will overdraw your account. Your account balance is ${self.balance}. Please try agian.')
+                withdrawal_amount = int(input('How much would you like to withdraw? '))
         self.balance -= withdrawal_amount
-        if self.balance >= 0:
-            print(f'Your account now holds ${self.balance}')
-        else:
-            self.balance += withdrawal_amount
-            print(f'You cannot withdraw that much as it will overdraw your account. Your account balance is ${self.balance}. Please try agian.')
-        
+        print(f'Your account balance is ${self.balance}.')
+            
+
+
 sarah = Account('Sarah', 100)
 sarah.deposit()
 sarah.withdraw()
