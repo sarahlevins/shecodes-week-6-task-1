@@ -11,12 +11,19 @@ survey = Survey({
             #qualifying_question
             Question(
                 'Are you a student or mentor?', 
-                ['[A] - Yes, I am a student', 
-                '[B] - No, I am not a student']),
+                    [
+                    Answer('A', 'Yes, I am a student'), 
+                    Answer('B', 'No, I am not a student')
+                    ]
+                    ),
             #first_question
-            Question ('Do you like being a student?', 
-                ['[A] - Yes',
-                '[B] - No']),
+            Question(
+                'Do you like being a student?', 
+                    [
+                    Answer('A', 'Yes, I love it!'), 
+                    Answer('B', 'No, I don\'t like it')
+                    ]
+                    ),
             #description
             'This section will ask you about being a shecodes student'
         )
@@ -27,30 +34,44 @@ survey = Survey({
             #qualifying_question
             Question(
                 'Have you used skill social before?', 
-                ['[A] - Yes', 
-                '[B] - No']),
+                    [
+                    Answer('A', 'Yes.'), 
+                    Answer('B', 'No.')
+                    ]
+                    ),
             #first_question
-            Question ('Do you like skill social', 
-                ['[A] - Yes',
-                '[B] - No']),
+            Question(
+                'Do you like skillsocial?', 
+                    [
+                    Answer('A', 'Yes, I love it!'), 
+                    Answer('B', 'No, I don\'t like it')
+                    ]
+                    ),
             #description
-            'This section is about using skill social'
+            'This section will ask you about being using skill social'
         )
     ,
     3 :
-        #SKILLSOCIAL SECTION
+        #SLACK SECTION
         Section(
             #qualifying_question
             Question(
                 'Have you used slack before?', 
-                ['[A] - Yes', 
-                '[B] - No']),
+                    [
+                    Answer('A', 'Yes.'), 
+                    Answer('B', 'No.')
+                    ]
+                    ),
             #first_question
-            Question ('Do you like slack', 
-                ['[A] - Yes',
-                '[B] - No']),
+            Question(
+                'Do you like slack?', 
+                    [
+                    Answer('A', 'Yes, I love it!'), 
+                    Answer('B', 'No, I don\'t like it')
+                    ]
+                    ),
             #description
-            'This section is about using slack'
+            'This section will ask you about using slack'
         )
 }
 )
@@ -59,19 +80,14 @@ survey.start_survey('Welcome to my shecodes survey!')
 survey.start_survey('I hope you enjoy completing it!')
 print('')
 
-survey.ask_qualifying_questions(1)
-survey.ask_qualifying_questions(2)
-survey.ask_qualifying_questions(3)
+
+for x in range(1,len(survey.survey_sections)+1):
+    survey.ask_qualifying_questions(x)
+    survey.answer_qualifying_question(x)
 
 
-
-# ASK QUALIFYING QUESTION ONE, take answer and return true or false
-# print(student_or_mentor.description)
-# print(f'{student_or_mentor.qualifying_question.question_text}')
-# print(f'{student_or_mentor.qualifying_question.answers[0]} ')
-# print(f'{student_or_mentor.qualifying_question.answers[1]} ')
-# # do method to get true or false
-# is_student = student_or_mentor.qualifying_question.get_answer_by_code()
-
-
+for y in range(1, len(survey.survey_sections)+1):
+    if survey.survey_sections[y].qualifying_question.result == True:
+        survey.ask_question(y)
+        survey.answer_question(y)
 

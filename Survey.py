@@ -11,28 +11,20 @@ class Survey:
         
     def ask_qualifying_questions(self,a):
         print (f'{self.survey_sections[a].qualifying_question.question_text}')
-        print (f'{self.survey_sections[a].qualifying_question.answers[0]}')
-        print (f'{self.survey_sections[a].qualifying_question.answers[1]}')
-        return self.survey_sections[a].qualifying_question.get_answer_by_code()
+        print (f'[{self.survey_sections[a].qualifying_question.answers[0].code}] - {self.survey_sections[a].qualifying_question.answers[0].answer_text}')
+        print (f'[{self.survey_sections[a].qualifying_question.answers[1].code}] - {self.survey_sections[a].qualifying_question.answers[1].answer_text}')
+
+    def answer_qualifying_question(self,a):
+        if self.survey_sections[a].qualifying_question.get_answer_by_code() == True:
+            self.survey_sections[a].qualifying_question.result = True
 
 
-# ASK QUALIFYING QUESTION ONE, take answer and return true or false
-# print(student_or_mentor.description)
-# print(f'{student_or_mentor.qualifying_question.question_text}')
-# print(f'{student_or_mentor.qualifying_question.answers[0]} ')
-# print(f'{student_or_mentor.qualifying_question.answers[1]} ')
-# # do method to get true or false
-# is_student = student_or_mentor.qualifying_question.get_answer_by_code()
+    def ask_question(self,a):
+        print (f'{self.survey_sections[a].first_question.question_text}')
+        print (f'[{self.survey_sections[a].first_question.answers[0].code}] - {self.survey_sections[a].first_question.answers[0].answer_text}')
+        print (f'[{self.survey_sections[a].first_question.answers[1].code}] - {self.survey_sections[a].first_question.answers[1].answer_text}')
 
-    # def start_survey_sections()
+    def answer_question(self,a):
+        if self.survey_sections[a].first_question.get_answer_by_code() == True:
+            self.survey_sections[a].first_question.result = True
 
-    # def ask_question()
-
-    # def show_answers()
-
-    # def answer_question()
-
-    # def go_to_next_question()
-
-    # def end()
-    
