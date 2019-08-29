@@ -25,7 +25,7 @@ survey = Survey({
                     ]
                     ),
             #description
-            'This section will ask you about being a shecodes student'
+            'Student or Mentor'
         )
     ,
     2 : 
@@ -35,8 +35,8 @@ survey = Survey({
             Question(
                 'Have you used skill social before?', 
                     [
-                    Answer('A', 'Yes.'), 
-                    Answer('B', 'No.')
+                    Answer('A', 'Yes, I have used skill social before.'), 
+                    Answer('B', 'No, I have never used it')
                     ]
                     ),
             #first_question
@@ -48,7 +48,7 @@ survey = Survey({
                     ]
                     ),
             #description
-            'This section will ask you about being using skill social'
+            'Skill Social'
         )
     ,
     3 :
@@ -58,8 +58,8 @@ survey = Survey({
             Question(
                 'Have you used slack before?', 
                     [
-                    Answer('A', 'Yes.'), 
-                    Answer('B', 'No.')
+                    Answer('A', 'Yes, I have used slack before'), 
+                    Answer('B', 'No, I have never used it')
                     ]
                     ),
             #first_question
@@ -71,23 +71,13 @@ survey = Survey({
                     ]
                     ),
             #description
-            'This section will ask you about using slack'
+            'Slack'
         )
 }
 )
-
-survey.start_survey('Welcome to my shecodes survey!')
-survey.start_survey('I hope you enjoy completing it!')
-print('')
-
-
-for x in range(1,len(survey.survey_sections)+1):
-    survey.ask_qualifying_questions(x)
-    survey.answer_qualifying_question(x)
-
-
-for y in range(1, len(survey.survey_sections)+1):
-    if survey.survey_sections[y].qualifying_question.result == True:
-        survey.ask_question(y)
-        survey.answer_question(y)
+#survey_name, instructions
+survey.start_survey('SHE CODES SURVEY', 'Please answer the following quesions so we can improve the programme')
+survey.ask_qualifying_questions()
+survey.ask_questions()
+survey.show_answers()
 
