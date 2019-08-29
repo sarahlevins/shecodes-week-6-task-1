@@ -1,4 +1,5 @@
 from Question import Question
+from Answer import Answer
 
 class Section:
     def __init__ (self, qualifying_question, first_question, description):

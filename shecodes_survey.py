@@ -3,10 +3,8 @@ from Survey import Survey
 from Section import Section
 from Answer import Answer
 
-# Welcome User to Survey
-Survey.start_survey()
 
-section_dictionary = {
+survey = Survey({
 #STUDENT OR MENTOR QUESTION SECTION
     1 :
         Section(
@@ -55,6 +53,16 @@ section_dictionary = {
             'This section is about using slack'
         )
 }
+)
+
+survey.start_survey('Welcome to my shecodes survey!')
+survey.start_survey('I hope you enjoy completing it!')
+print('')
+
+survey.ask_qualifying_questions(1)
+survey.ask_qualifying_questions(2)
+survey.ask_qualifying_questions(3)
+
 
 
 # ASK QUALIFYING QUESTION ONE, take answer and return true or false
@@ -65,5 +73,5 @@ section_dictionary = {
 # # do method to get true or false
 # is_student = student_or_mentor.qualifying_question.get_answer_by_code()
 
-print(f'{section_dictionary[2].qualifying_question.question_text}')
+
 
