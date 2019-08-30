@@ -17,13 +17,28 @@ survey = Survey({
                     ]
                     ),
             #first_question
-            Question(
+            {1: Question(
                 'Do you like being a student?', 
                     [
                     Answer('A', 'Yes, I love it!'), 
                     Answer('B', 'No, I don\'t like it')
                     ]
                     ),
+            2: Question(
+                'Are you having fun being a student?', 
+                    [
+                    Answer('A', 'Yes, I love it!'), 
+                    Answer('B', 'No, I don\'t like it')
+                    ]
+                    ),
+            3: Question(
+                'Are you having fun being a student??', 
+                    [
+                    Answer('A', 'Yes, I love it!'), 
+                    Answer('B', 'No, I don\'t like it')
+                    ]
+                    ),
+            },
             #description
             'Student or Mentor'
         )
@@ -40,13 +55,21 @@ survey = Survey({
                     ]
                     ),
             #first_question
-            Question(
+            {1:Question(
                 'Do you like skillsocial?', 
                     [
                     Answer('A', 'Yes, I love it!'), 
                     Answer('B', 'No, I don\'t like it')
                     ]
                     ),
+            2:Question(
+                'Would you recommend skillsocial to others?',
+                    [
+                    Answer ('A', 'Absolutey!'),
+                    Answer ('yes', 'yes')
+                    ]
+                    )
+            },
             #description
             'Skill Social'
         )
@@ -63,13 +86,21 @@ survey = Survey({
                     ]
                     ),
             #first_question
-            Question(
+            {1: Question(
                 'Do you like slack?', 
                     [
                     Answer('A', 'Yes, I love it!'), 
                     Answer('B', 'No, I don\'t like it')
                     ]
                     ),
+            2: Question(
+                'Would you recommend slack to other?',
+                    [
+                    Answer('A', 'Yeah, sure!'),
+                    Answer('B', 'No way jose!')
+                    ]
+            )
+            },
             #description
             'Slack'
         )
@@ -77,6 +108,10 @@ survey = Survey({
 )
 #survey_name, instructions
 survey.start_survey('SHE CODES SURVEY', 'Please answer the following quesions so we can improve the programme')
+
+# print (survey.survey_sections[1].first_question)
+# print(len(survey.survey_sections[1].first_question))
+
 survey.ask_qualifying_questions()
 survey.ask_questions()
 survey.show_answers()
