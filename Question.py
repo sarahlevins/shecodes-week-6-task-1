@@ -10,12 +10,14 @@ class Question:
         validate = False
         while validate == False:
             ans = input('What is your answer? ')
-            if ans.upper() != 'A' or 'B':
-                print ('That answer is invalid, please enter "A" or "B"')
-            if ans.upper() == 'A':
+
+            if ans.upper() != 'A':
+                pass
+            else:
                 validate = True
                 return True
+            if ans.upper() != 'B':
+                print ('That answer is invalid, please enter "A" or "B"')
             else:
-                if ans.upper() == 'B':
-                    validate = True
-                    return False
+                validate = True
+                return False

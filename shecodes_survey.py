@@ -106,13 +106,10 @@ survey = Survey({
         )
 }
 )
-#survey_name, instructions
+
+
 survey.start_survey('SHE CODES SURVEY', 'Please answer the following quesions so we can improve the programme')
-
-# print (survey.survey_sections[1].first_question)
-# print(len(survey.survey_sections[1].first_question))
-
 survey.ask_qualifying_questions()
 survey.ask_questions()
 survey.show_answers()
-
+survey.end_and_repeat_survey()

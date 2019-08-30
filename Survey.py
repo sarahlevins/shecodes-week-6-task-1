@@ -54,3 +54,18 @@ class Survey:
                         print ('')
             else:
                 print(f'You did not qualify to answer any questions in the {self.survey_sections[a].description} section.')
+    
+    def end_and_repeat_survey(self):
+        repeat = input('Thank you for taking the time to compete this survey.\nWould you like to complete this survey?\n Y / N?: \n')
+        if repeat == 'Y':
+            self.start_survey()
+            self.ask_qualifying_questions()
+            self.ask_questions()
+            self.show_answers()
+            self.end_and_repeat_survey()
+        else:
+            print('No worries. Thank you for your time!')
+
+
+
+
