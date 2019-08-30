@@ -7,10 +7,15 @@ class Question:
         self.result = result
 
     def get_answer_by_code(self):
-        ans = input('What is your answer? ')
-        if ans == 'A':
-            return True
-        else:
-            return False
-
-        
+        validate = False
+        while validate == False:
+            ans = input('What is your answer? ')
+            if ans.upper() != 'A' or 'B':
+                print ('That answer is invalid, please enter "A" or "B"')
+            if ans.upper() == 'A':
+                validate = True
+                return True
+            else:
+                if ans.upper() == 'B':
+                    validate = True
+                    return False
