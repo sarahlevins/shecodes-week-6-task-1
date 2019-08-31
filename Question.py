@@ -17,7 +17,7 @@ class Question:
                 validate = True
                 return True
             if ans.upper() != 'B':
-                print ('That answer is invalid, please enter "A" or "B"')
+                print ('\nThat answer is invalid, please enter "A" or "B"')
             else:
                 validate = True
                 return False
